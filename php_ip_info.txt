@@ -1,0 +1,12 @@
+Put this in header to reactivate:
+
+  $file = "./visit.txt";
+  
+  $ip = $_SERVER['REMOTE_ADDR'];
+  $pip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  $qr = $_GET['v'];
+  $time = date("Y-m-d H:i:s");
+  
+  $content = "IP: $ip ## PIP: $pip ## QR: $qr ## Time: $time\r\n";
+  
+  file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
